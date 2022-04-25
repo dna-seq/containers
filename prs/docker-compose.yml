@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   prs:
-    image: quay.io/just-dna-seq/prs
+    image: quay.io/just-dna-seq/prs:latest
     ports:
       - 8788:8787
     environment:
@@ -19,6 +19,8 @@ services:
       - "traefik.http.routers.local_prs.entrypoints=http"
       #services
       - "traefik.http.services.prs.loadbalancer.server.port=8788"
+    command:
+      - rstudio-server start
     networks:
       - web
     deploy:

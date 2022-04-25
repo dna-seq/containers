@@ -15,8 +15,7 @@ RUN R -f /tmp/install.R
 RUN chown -R rstudio /home/rstudio/
 #bug fixes for permissions issues
 RUN rm /var/lib/rstudio-server/rstudio.sqlite
-RUN chmod -R g=u /var/lib/rstudio-server
-RUN chmod -R g=u /etc/rstudio
+RUN chmod -R g=u /var/lib/rstudio-server && chmod -R g=u /etc/rstudio &&  chmod -R g=u /usr/local
 
 USER rstudio
 
