@@ -9,7 +9,6 @@ ENV PATH "$PATH:/home/rstudio/.local/bin:/home/rstudio/.local"
 USER root
 RUN apt-get install -y cmake zlib1g-dev
 RUN pip3 install cget click
-RUN cget install -DCMAKE_C_FLAGS="-fPIC" -DCMAKE_CXX_FLAGS="-fPIC" --prefix thirdParty/cget statgen/savvy
 
 # R stuff
 RUN R -f /tmp/install.R
