@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  prs:
+    image: quay.io/just-dna-seq/prs
+    ports:
+      - 8788:8787
+    environment:
+      PASSWORD: "InDNAWeTrust"
+    volumes:
+      - /data/public/prs:/home/rstudio
+    labels:
+      - "traefik.enable=true"
+      # prs.agingkills.eu
+      - "traefik.http.routers.prs.rule=Host(`prs.agingkills.eu`)"
+      - "traefik.http.routers.prs.entrypoints=http"
+      # prs.localhost
+      - "traefik.http.routers.local_prs.rule=Host(`prs.localhost`)"
+      - "traefik.http.routers.local_prs.entrypoints=http"
+      #services
+      - "traefik.http.services.prs.loadbalancer.server.port=8788"
+    networks:
+      - web
+    deploy:
+      restart_policy:
+        condition: any
+
+networks:
+  web:
+    name: web
+    external: true

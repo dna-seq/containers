@@ -1,2 +1,2 @@
 # containers
-Repository for useful containers
+Repository for containers in Just-DNA-Seq project.
