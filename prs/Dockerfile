@@ -14,10 +14,12 @@ RUN pip3 install cget click
 RUN R -f /tmp/install.R
 RUN chown -R rstudio /home/rstudio/
 #bug fixes for permissions issues
-RUN rm /var/lib/rstudio-server/rstudio.sqlite
-RUN chmod -R g=u /var/lib/rstudio-server && chmod -R g=u /etc/rstudio &&  chmod -R g=u /usr/local
+RUN chmod -R g=u /var/lib/rstudio-server && chmod -R g=u /etc/rstudio &&  chmod -R g=u /usr/local/lib/R
 
 USER rstudio
 
 # invalidates cache every 24 hours
 ADD http://master.bioconductor.org/todays-date /tmp/
+
+SHELL ["/bin/bash"]
+CMD ["rstudio-server start"]

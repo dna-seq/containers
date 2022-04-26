@@ -6,7 +6,7 @@ services:
     ports:
       - 8788:8787
     environment:
-      PASSWORD: "InDNAWeTrust"
+      PASSWORD: "InDNAWeTrust!"
     volumes:
       - /data/public/prs:/home/rstudio
     labels:
