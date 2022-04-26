@@ -20,7 +20,7 @@ services:
       #services
       - "traefik.http.services.prs.loadbalancer.server.port=8788"
     command:
-      - rstudio-server start
+      - init
     networks:
       - web
     deploy:

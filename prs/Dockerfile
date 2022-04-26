@@ -21,5 +21,5 @@ USER rstudio
 # invalidates cache every 24 hours
 ADD http://master.bioconductor.org/todays-date /tmp/
 
-SHELL ["/bin/bash"]
-CMD ["rstudio-server start"]
+#SHELL ["/bin/bash"]
+#CMD ["rstudio-server start"]
