@@ -17,5 +17,7 @@ RUN R -f /tmp/install.R
 # invalidates cache every 24 hours
 ADD http://master.bioconductor.org/todays-date /tmp/
 
-#SHELL ["/bin/bash"]
-#CMD ["rstudio-server start"]
+USER root
+RUN chown -R root:root /var/lib/rstudio-server
+RUN chmod -R g=u /var/lib/rstudio-server
+USER rstudio
