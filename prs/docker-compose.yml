@@ -19,8 +19,6 @@ services:
       - "traefik.http.routers.local_prs.entrypoints=http"
       #services
       - "traefik.http.services.prs.loadbalancer.server.port=8788"
-    command:
-      - init
     networks:
       - web
     deploy:
