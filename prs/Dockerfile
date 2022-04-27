@@ -20,4 +20,5 @@ ADD http://master.bioconductor.org/todays-date /tmp/
 USER root
 RUN chown -R root:root /var/lib/rstudio-server
 RUN chmod -R g=u /var/lib/rstudio-server
+RUN chmod -R g=u /usr/local/lib/R
 USER rstudio
