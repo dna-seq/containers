@@ -15,10 +15,7 @@ USER rstudio
 RUN R -f /tmp/install.R
 
 # invalidates cache every 24 hours
-ADD http://master.bioconductor.org/todays-date /tmp/
+# ADD http://master.bioconductor.org/todays-date /tmp/
 
 USER root
-RUN chown -R root:root /var/lib/rstudio-server
-RUN chmod -R g=u /var/lib/rstudio-server
-RUN chmod -R g=u /usr/local/lib/R
-USER rstudio
+RUN chown -R 777 /usr/local/lib/R/library
